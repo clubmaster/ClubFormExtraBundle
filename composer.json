@@ -14,5 +14,8 @@
             "homepage": "http://www.hollo.dk",
             "role": "Maintainer"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": { "Club\\FormExtraBundle": "" }
+    }
 }
