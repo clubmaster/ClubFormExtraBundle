@@ -27,6 +27,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
             ->scalarNode('title')->defaultValue('ClubMaster')->end()
+            ->scalarNode('tinymce_width')->defaultValue('80%')->end()
+            ->scalarNode('tinymce_height')->defaultValue('300px')->end()
             ->end();
 
         return $treeBuilder;

@@ -5,6 +5,7 @@ services:
             - { name: "form.type_extension", alias: "field" }
     club_layout_form_tinymce:
         class: Club\FormExtraBundle\Form\TinyMceType
+        arguments: [@service_container]
         tags:
             - { name: "form.type", alias: "tinymce" }
     club_layout_form_jquery_calendar:

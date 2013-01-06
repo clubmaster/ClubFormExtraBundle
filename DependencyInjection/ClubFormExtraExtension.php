@@ -26,6 +26,8 @@ class ClubFormExtraExtension extends Extension
         $loader->load('twig.yml');
         $loader->load('form.yml');
 
-        $container->setParameter('club_formextra.title', $config['title']);
+        $container->setParameter('club_form_extra.title', $config['title']);
+        $container->setParameter('club_form_extra.tinymce_height', $config['tinymce_height']);
+        $container->setParameter('club_form_extra.tinymce_width', $config['tinymce_width']);
     }
 }
