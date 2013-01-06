@@ -25,5 +25,7 @@ class ClubFormExtraExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('twig.yml');
         $loader->load('form.yml');
+
+        $container->setParameter('club_formextra.title', $config['title']);
     }
 }

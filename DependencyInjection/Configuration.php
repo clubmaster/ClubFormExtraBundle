@@ -24,6 +24,11 @@ class Configuration implements ConfigurationInterface
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
 
+        $rootNode
+            ->children()
+            ->scalarNode('title')->defaultValue('ClubMaster')->end()
+            ->end();
+
         return $treeBuilder;
     }
 }

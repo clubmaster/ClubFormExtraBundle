@@ -14,7 +14,7 @@ class ApplicationExtension extends \Twig_Extension
     public function getGlobals()
     {
         return array(
-            'club_title' => $this->container->getParameter('club_layout.title')
+            'club_title' => $this->container->getParameter('club_formextra.title')
         );
     }
 
