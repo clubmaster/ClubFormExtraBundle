@@ -131,7 +131,11 @@ class DateExtension extends \Twig_Extension
 
     public function getDay($value)
     {
-        if (!$value instanceof \DateTime) {
+        if ($value instanceof \DateTime) {
+            $date = $value;
+        } elseif (preg_match("/^\d{4}\-\d{2}\-\d{2}/", $value)) {
+            $date = new \DateTime($value);
+        } elseif (!$value instanceof \DateTime) {
             $date = new \DateTime('next monday');
             $date->add(new \DateInterval('P'.($value-1).'D'));
         } else {
