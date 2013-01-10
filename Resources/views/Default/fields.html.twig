@@ -66,6 +66,9 @@
 
         content_css : "{{ asset('bundles/clubformextra/css/tinymce.css') }}",
 
+        plugins : "paste",
+        paste_auto_cleanup_on_paste : true,
+
         width: "{{ tinymce_width }}",
         height: "{{ tinymce_height }}"
     });
