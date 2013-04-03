@@ -44,3 +44,8 @@ services:
         arguments: [@translator]
         tags:
             - { name: "form.type", alias: "hour" }
+    club_layout_form_club_country:
+        class: Club\FormExtraBundle\Form\ClubCountryType
+        arguments: [@translator]
+        tags:
+            - { name: "form.type", alias: "club_country" }
