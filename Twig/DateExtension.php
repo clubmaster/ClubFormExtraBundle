@@ -164,7 +164,7 @@ class DateExtension extends \Twig_Extension
 
     protected function intlExists()
     {
-        return (class_exists('IntlDateFormatter')) ? true : false;
+        return extension_loaded('intl');
     }
 
     private function time_ago(\DateTime $date)
