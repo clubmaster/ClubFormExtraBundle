@@ -2,7 +2,7 @@ services:
     club_layout_form_extension:
         class: Club\FormExtraBundle\Form\HelpTypeExtension
         tags:
-            - { name: "form.type_extension", alias: "field" }
+            - { name: "form.type_extension", alias: "form" }
     club_layout_form_tinymce:
         class: Club\FormExtraBundle\Form\TinyMceType
         arguments: [@service_container]
