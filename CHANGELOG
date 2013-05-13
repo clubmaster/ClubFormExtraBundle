@@ -1,2 +1,5 @@
+1.2 (2013-05-13)
+    * Fixed TinyMCE form
+
 1.1 (2013-05-07)
     * Made the help form extension compatible with symfony 2.3

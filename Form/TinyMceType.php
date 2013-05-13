@@ -24,13 +24,13 @@ class TinyMceType extends AbstractType
 
     public function finishView(FormView $view, FormInterface $form, array $options)
     {
-        if ($form->getAttribute('type')) {
-            $type = $form->getAttribute('type');
-            $view->set('type', $type);
+        if ($form->getConfig()->getAttribute('type')) {
+            $type = $form->getConfig()->getAttribute('type');
+            $view->vars['type'] = $type;
         }
 
-        $view->set('tinymce_height', $this->container->getParameter('club_form_extra.tinymce_height'));
-        $view->set('tinymce_width', $this->container->getParameter('club_form_extra.tinymce_width'));
+        $view->vars['tinymce_height'] = $this->container->getParameter('club_form_extra.tinymce_height');
+        $view->vars['tinymce_width'] = $this->container->getParameter('club_form_extra.tinymce_width');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
