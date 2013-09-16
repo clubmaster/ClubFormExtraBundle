@@ -14,7 +14,7 @@ class DateExtension extends \Twig_Extension
     public function __construct($container)
     {
         $this->container = $container;
-        $this->em = $container->get('doctrine.orm.entity_manager');
+        $this->em = $container->get('doctrine.orm.default_entity_manager');
         $this->security_context = $container->get('security.context');
         $this->session = $container->get('session');
         $this->translator = $container->get('translator');
