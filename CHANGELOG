@@ -1,5 +1,6 @@
 1.5 (2013-09-16)
     * Added source code to the toolbar
+    * Default paste as plain text
 
 1.4 (2013-09-16)
     * Upgraded tinymce to version 4.x, and uses the CDN instead of self hosted code.
