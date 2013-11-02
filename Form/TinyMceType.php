@@ -31,6 +31,10 @@ class TinyMceType extends AbstractType
 
         $view->vars['tinymce_height'] = $this->container->getParameter('club_form_extra.tinymce_height');
         $view->vars['tinymce_width'] = $this->container->getParameter('club_form_extra.tinymce_width');
+
+        if ($this->container->getParameter('club_form_extra.tinymce_language_url')) {
+            $view->vars['tinymce_language_url'] = $this->container->getParameter('club_form_extra.tinymce_language_url');
+        }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

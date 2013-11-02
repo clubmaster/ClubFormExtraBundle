@@ -1,3 +1,7 @@
+1.6 ()
+    * Added more stuff to admin view
+    * Added language_url support
+
 1.5 (2013-09-16)
     * Added source code to the toolbar
     * Default paste as plain text
