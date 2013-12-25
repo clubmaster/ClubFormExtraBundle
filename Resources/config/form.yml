@@ -8,6 +8,11 @@ services:
         arguments: [@service_container]
         tags:
             - { name: "form.type", alias: "tinymce" }
+    club_layout_form_colorpicker:
+        class: Club\FormExtraBundle\Form\ColorPickerType
+        arguments: [@service_container]
+        tags:
+            - { name: "form.type", alias: "colorpicker" }
     club_layout_form_jquery_calendar:
         class: Club\FormExtraBundle\Form\JQueryDateTimeType
         tags:

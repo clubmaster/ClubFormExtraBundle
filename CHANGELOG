@@ -1,3 +1,7 @@
+1.7 (2013-12-25)
+    * Added colorpicker jquery module
+    * Fixed tinymce, add and remove image and media plugins
+
 1.6 (2013-11-02)
     * Added more stuff to admin view
     * Added language_url support

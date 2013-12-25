@@ -52,11 +52,8 @@
         mode : "exact",
         elements: "{{ id }}",
 
-        {% if type is defined and type == 'admin' %}
-        {% else %}
-            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-            toolbar2: "print preview media | forecolor backcolor emoticons",
-        {% endif %}
+        toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        toolbar2: "print preview media | forecolor backcolor emoticons",
 
         theme_advanced_toolbar_location : "top",
         theme_advanced_toolbar_align : "left",
@@ -70,9 +67,9 @@
         content_css : "{{ asset('bundles/clubformextra/css/tinymce.css') }}",
 
         plugins: [
-        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "advlist autolink lists link {% if plugins.noimage is not defined %}image {% endif %}charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",
-        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "insertdatetime {% if plugins.nomedia is not defined %}media {% endif %}nonbreaking save table contextmenu directionality",
         "emoticons paste textcolor"
         ],
 
@@ -80,6 +77,24 @@
 
         width: "{{ tinymce_width }}",
         height: "{{ tinymce_height }}"
+    });
+    </script>
+
+    {{ form_widget(form) }}
+{% endspaceless %}
+{% endblock %}
+
+{% block colorpicker_widget %}
+{% spaceless %}
+    <script src="{{ asset('colpick/js/colpick.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('colpick/css/colpick.css') }}" />
+    <script type="text/javascript">
+    $(function() {
+            $( "#{{ id }}" ).colpick({
+                onChange:function(hsb,hex,rgb,fromSetColor) {
+                    if(!fromSetColor) $('#{{ id }}').val('#'+hex);
+                }
+            });
     });
     </script>
 

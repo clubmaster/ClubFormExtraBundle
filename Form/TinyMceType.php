@@ -19,14 +19,14 @@ class TinyMceType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->setAttribute('type', $options['type']);
+        $builder->setAttribute('plugins', $options['plugins']);
     }
 
     public function finishView(FormView $view, FormInterface $form, array $options)
     {
-        if ($form->getConfig()->getAttribute('type')) {
-            $type = $form->getConfig()->getAttribute('type');
-            $view->vars['type'] = $type;
+        if ($form->getConfig()->getAttribute('plugins')) {
+            $plugins = $form->getConfig()->getAttribute('plugins');
+            $view->vars['plugins'] = $plugins;
         }
 
         $view->vars['tinymce_height'] = $this->container->getParameter('club_form_extra.tinymce_height');
@@ -40,7 +40,7 @@ class TinyMceType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'type' => null,
+            'plugins' => null,
         ));
     }
 
