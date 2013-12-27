@@ -1,3 +1,6 @@
+1.8
+    * Added background-color to colorpickers input field
+
 1.7 (2013-12-25)
     * Added colorpicker jquery module
     * Fixed tinymce, add and remove image and media plugins
