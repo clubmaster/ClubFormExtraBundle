@@ -93,12 +93,18 @@
             $( "#{{ id }}" ).colpick({
                 onChange:function(hsb,hex,rgb,fromSetColor) {
                     if(!fromSetColor) $('#{{ id }}').val('#'+hex);
+                    $('#{{ id }}').css('background-color', '#'+hex);
                 }
+            });
+
+            $(document).ready(function() {
+                $('#{{ id }}').css('background-color', $('#{{ id }}').val());
             });
     });
     </script>
 
     {{ form_widget(form) }}
+
 {% endspaceless %}
 {% endblock %}
 
