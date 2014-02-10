@@ -30,5 +30,6 @@ class ClubFormExtraExtension extends Extension
         $container->setParameter('club_form_extra.tinymce_height', $config['tinymce_height']);
         $container->setParameter('club_form_extra.tinymce_width', $config['tinymce_width']);
         $container->setParameter('club_form_extra.tinymce_language_url', $config['tinymce_language_url']);
+        $container->setParameter('club_form_extra.datepicker_firstday', $config['datepicker_firstday']);
     }
 }

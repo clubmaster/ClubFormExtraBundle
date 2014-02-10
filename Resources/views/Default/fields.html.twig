@@ -114,6 +114,7 @@
     $(function() {
         if (!Modernizr.inputtypes.date) {
             $( "#{{ id }}_date" ).datepicker({
+              firstDay: {{ firstDay }},
               "dateFormat":"yy-mm-dd"
             });
         }
@@ -206,6 +207,7 @@
     $(function() {
         if (!Modernizr.inputtypes.date) {
             $( "#{{ id }}" ).datepicker({
+              firstDay: {{ firstDay }},
                 'dateFormat': 'yy-mm-dd'
             });
         }
@@ -222,6 +224,7 @@
     $(function() {
         if (!Modernizr.inputtypes.date) {
             $( "#{{ id }}" ).datepicker({
+                firstDay: {{ firstDay }},
                 'dateFormat': 'yy-mm-dd'
             });
         }

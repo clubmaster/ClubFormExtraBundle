@@ -30,6 +30,7 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('tinymce_width')->defaultValue('80%')->end()
             ->scalarNode('tinymce_height')->defaultValue('300px')->end()
             ->scalarNode('tinymce_language_url')->defaultNull()->end()
+            ->scalarNode('datepicker_firstday')->defaultValue(0)->end()
             ->end();
 
         return $treeBuilder;

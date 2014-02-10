@@ -1,4 +1,5 @@
-1.8
+1.8 (2014-02-05)
+    * Added datepicker firstDay parameter
     * Added background-color to colorpickers input field
 
 1.7 (2013-12-25)

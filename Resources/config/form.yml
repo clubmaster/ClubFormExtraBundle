@@ -15,10 +15,12 @@ services:
             - { name: "form.type", alias: "colorpicker" }
     club_layout_form_jquery_calendar:
         class: Club\FormExtraBundle\Form\JQueryDateTimeType
+        arguments: [@service_container]
         tags:
             - { name: "form.type", alias: "jquery_datetime" }
     club_layout_form_jquery_date:
         class: Club\FormExtraBundle\Form\JQueryDateType
+        arguments: [@service_container]
         tags:
             - { name: "form.type", alias: "jquery_date" }
     club_layout_form_jquery_birthday:
