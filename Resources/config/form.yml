@@ -25,6 +25,7 @@ services:
             - { name: "form.type", alias: "jquery_date" }
     club_layout_form_jquery_birthday:
         class: Club\FormExtraBundle\Form\JQueryBirthdayType
+        arguments: [@service_container]
         tags:
             - { name: "form.type", alias: "jquery_birthday" }
     club_layout_form_jquery_autocomplete:
