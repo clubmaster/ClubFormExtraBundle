@@ -1,0 +1,3 @@
+services:
+    club_extra.tools:
+        class: Club\FormExtraBundle\Helper\Tools

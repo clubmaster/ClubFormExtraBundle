@@ -1,5 +1,6 @@
-1.11 (2014-02-26)
+1.11 (2014-03-08)
     * Removed unusable blocks from fields.html.twig
+    * Added slugify function
 
 1.10 (2014-02-18)
     * Added fileextension for prettify filesize
