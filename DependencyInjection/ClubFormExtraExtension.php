@@ -28,6 +28,7 @@ class ClubFormExtraExtension extends Extension
         $loader->load('form.yml');
 
         $container->setParameter('club_form_extra.title', $config['title']);
+        $container->setParameter('club_form_extra.description', $config['description']);
         $container->setParameter('club_form_extra.tinymce_height', $config['tinymce_height']);
         $container->setParameter('club_form_extra.tinymce_width', $config['tinymce_width']);
         $container->setParameter('club_form_extra.tinymce_language_url', $config['tinymce_language_url']);

@@ -14,8 +14,39 @@ class ApplicationExtension extends \Twig_Extension
     public function getGlobals()
     {
         return array(
-            'club_title' => $this->container->getParameter('club_form_extra.title')
+            'club_title' => $this->getTitle(),
+            'club_description' => $this->getDescription()
         );
+    }
+
+    private function getTitle()
+    {
+        switch (true) {
+        case (strlen($this->container->get('club_extra.storage')->getTitle()) > 0):
+            $title = $this->container->get('club_extra.storage')->getTitle();
+            break;
+
+        default:
+            $title = $this->container->getParameter('club_form_extra.title');
+            break;
+        }
+
+        return $title;
+    }
+
+    private function getDescription()
+    {
+        switch (true) {
+        case (strlen($this->container->get('club_extra.storage')->getDescription()) > 0):
+            $description = $this->container->get('club_extra.storage')->getDescription();
+            break;
+
+        default:
+            $description = $this->container->getParameter('club_form_extra.description');
+            break;
+        }
+
+        return $description;
     }
 
     public function getName()

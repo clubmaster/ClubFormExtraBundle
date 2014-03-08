@@ -1,3 +1,5 @@
 services:
     club_extra.tools:
         class: Club\FormExtraBundle\Helper\Tools
+    club_extra.storage:
+        class: Club\FormExtraBundle\Helper\Storage
