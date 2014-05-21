@@ -3,6 +3,8 @@
 namespace Club\FormExtraBundle\Helper;
 
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Util\SecureRandom;
+
 
 class User
 {
@@ -19,5 +21,12 @@ class User
         $encoder = $factory->getEncoder($user);
 
         return $encoder->encodePassword($password, $user->getSalt());
+    }
+
+    public function generatePassword($length=6)
+    {
+        $generator = new SecureRandom();
+
+        return bin2hex($generator->nextBytes($length));
     }
 }
