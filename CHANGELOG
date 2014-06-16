@@ -1,6 +1,7 @@
 1.16
     * Added random password generator
     * Added random firstname, lastname and email generator
+    * Added basic jquery ul/li slider
 
 1.15 (2014-05-13)
     * Added symfony user encoder helper class
