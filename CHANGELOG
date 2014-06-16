@@ -1,4 +1,4 @@
-1.16
+1.16 (2014-06-16)
     * Added random password generator
     * Added random firstname, lastname and email generator
     * Added basic jquery ul/li slider
