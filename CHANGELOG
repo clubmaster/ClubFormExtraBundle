@@ -1,5 +1,7 @@
 1.17
     * Added js and css for colorpicker moduler
+    * Added contrast font color to color picker
+    * Added value to color picker field
 
 1.16 (2014-06-16)
     * Added random password generator
