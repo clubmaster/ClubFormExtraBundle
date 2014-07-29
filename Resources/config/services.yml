@@ -7,3 +7,6 @@ services:
         arguments: [@service_container]
     club_extra.storage:
         class: Club\FormExtraBundle\Helper\Storage
+    club_extra.flash:
+        class: Club\FormExtraBundle\Helper\FlashHelper
+        arguments: [@session, @translator, @logger]
