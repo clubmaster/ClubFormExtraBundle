@@ -1,3 +1,6 @@
+1.20 (2014-07-29)
+    * Fixed usage of the wrong images
+
 1.19 (2014-07-29)
     * Added flash messages support to bundle (success, info, warning and error)
 
