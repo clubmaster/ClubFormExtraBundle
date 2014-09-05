@@ -215,15 +215,43 @@
 {% endblock %}
 
 {% block jquery_autocomplete_widget %}
-{% spaceless %}
-    {% set field_id = '#' ~ id %}
+<link rel="stylesheet" href="{{ asset('bundles/clubformextra/css/typeahead.css') }}" />
+<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/typeahead.bundle.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
 
-    {% if v is defined %}
-        {% include "ClubLayoutBundle:Default:ajax_user.html.twig" with {'f':field_id, 'v':v} %}
-    {% else %}
-        {% include "ClubLayoutBundle:Default:ajax_user.html.twig" with {'f':field_id} %}
-    {% endif %}
+    if ('function' != typeof typeaheadReplace) {
+        typeaheadReplace = function(url, query) {
+           return url.replace(/%QUERY/, query);
+        }
+    }
 
-    {{ form_widget(form) }}
-{% endspaceless %}
+    var fetchUrl = "{{ fetchUrl }}";
+    var fetch = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        limit: 100,
+        remote: {
+            url: fetchUrl+'?q=%QUERY',
+            replace: typeaheadReplace
+        }
+    });
+    fetch.initialize();
+
+    $('#{{ id }}').typeahead(
+    {
+        highlight: true,
+        minLength: 1,
+        hint: true
+    },
+    {
+        name: 'fetch',
+        displayKey: 'value',
+        source: fetch.ttAdapter()
+    });
+});
+</script>
+<div id="scrollable-dropdown-menu">
+{{ form_widget(form) }}
+</div>
 {% endblock %}

@@ -4,9 +4,10 @@ namespace Club\FormExtraBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Club\UserBundle\Form\DataTransformer\UserToNumberTransformer;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\Form\FormInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class JQueryAutocompleteType extends AbstractType
 {
@@ -28,15 +29,21 @@ class JQueryAutocompleteType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $transformer = new UserToNumberTransformer($this->om);
-        $builder->addModelTransformer($transformer);
+        $builder->setAttribute('fetchUrl', $options['fetchUrl']);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'invalid_message' => $this->translator->trans('The user does not exist'),
+            'fetchUrl' => null
         ));
+    }
+
+    public function finishView(FormView $view, FormInterface $form, array $options)
+    {
+        if ($form->getConfig()->getAttribute('fetchUrl')) {
+            $view->vars['fetchUrl'] = $form->getConfig()->getAttribute('fetchUrl');
+        }
     }
 
     public function getParent()

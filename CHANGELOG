@@ -1,3 +1,7 @@
+2.0
+    * This upgrade is basically because of twitter bootstrap 3.x
+    * Fixed autocomplete to twitter typeahead
+
 1.20 (2014-07-29)
     * Fixed usage of the wrong images
 

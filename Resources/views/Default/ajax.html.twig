@@ -1,0 +1,50 @@
+{% if f is not defined %}
+{% set f = '#query' %}
+{% endif %}
+
+{% if a is not defined or a %}
+{% set a = 1 %}
+{% else %}
+{% set a = 0 %}
+{% endif %}
+
+{% if v is not defined %}
+{% set v = 'item.member_number' %}
+{% elseif v == 'name' %}
+{% set v = "item.first_name +' ' + item.last_name" %}
+{% endif %}
+
+<script type="text/javascript">
+var url = "{{ path('homepage') }}";
+
+$(document).ready(function() {
+
+    $('{{ f }}').autocomplete({
+        source: function( request, response) {
+        $.ajax({
+            url: url + "api/users/search",
+            dataType: "json",
+            data: {
+                maxRows: 12,
+                view: 'all',
+                query: request.term
+            },
+            success: function( data ) {
+            response( $.map( data.data, function( item ) {
+                return {
+                    label: (item.first_name +' ' + item.last_name),
+                    value: ({{ v|raw }}),
+                    id: item.id
+                }
+            }));
+        }
+    });
+},
+select: function( event, ui ) {
+            {% if a %}
+            $('{{ f }}').closest('form').submit();
+            {% endif %}
+        }
+});
+});
+</script>
