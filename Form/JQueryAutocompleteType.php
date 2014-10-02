@@ -30,12 +30,18 @@ class JQueryAutocompleteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->setAttribute('fetchUrl', $options['fetchUrl']);
+        $builder->setAttribute('scrollable', $options['scrollable']);
+        $builder->setAttribute('minLength', $options['minLength']);
+        $builder->setAttribute('displayValue', $options['displayValue']);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'fetchUrl' => null
+            'fetchUrl' => null,
+            'scrollable' => true,
+            'minLength' => 1,
+            'displayValue' => 'value'
         ));
     }
 
@@ -44,6 +50,10 @@ class JQueryAutocompleteType extends AbstractType
         if ($form->getConfig()->getAttribute('fetchUrl')) {
             $view->vars['fetchUrl'] = $form->getConfig()->getAttribute('fetchUrl');
         }
+
+        $view->vars['scrollable'] = $form->getConfig()->getAttribute('scrollable');
+        $view->vars['minLength'] = $form->getConfig()->getAttribute('minLength');
+        $view->vars['displayValue'] = $form->getConfig()->getAttribute('displayValue');
     }
 
     public function getParent()

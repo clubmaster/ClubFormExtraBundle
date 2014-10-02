@@ -16,6 +16,9 @@ twig:
         resources:
             - "ClubFormExtraBundle:Default:fields.html.twig"
 
+Of you can just add the following to the top of your template:
+{% form_theme form 'ClubFormExtraBundle:Default:fields.html.twig' %}
+
 Remember if you use the tinymce form, you will properly want to disble form validation:
 
 <form novalidate="true">
@@ -32,3 +35,13 @@ Added html slider:
 <script src="bundles/clubformextra/js/slideshow.css"></script>
 
 That will add a slideshow for you.
+
+To use typeahead, your controller must follow this pattern:
+
+$result = array(
+    array(
+        'value' => 'Meh'
+    )
+);
+
+new JsonResponse($result);

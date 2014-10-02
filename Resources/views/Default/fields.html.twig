@@ -241,17 +241,17 @@ $(document).ready(function() {
     $('#{{ id }}').typeahead(
     {
         highlight: true,
-        minLength: 1,
+        minLength: {{ minLength }},
         hint: true
     },
     {
         name: 'fetch',
-        displayKey: 'value',
+        displayKey: '{{ displayValue }}',
         source: fetch.ttAdapter()
     });
 });
 </script>
-<div id="scrollable-dropdown-menu">
+<div{% if scrollable == true %} id="scrollable-dropdown-menu"{% endif %}>
 {{ form_widget(form) }}
 </div>
 {% endblock %}
