@@ -6,7 +6,7 @@ function slideSwitch() {
     var $next =  $active.next().length ? $active.next()
         : $('#slideshow li:first');
 
-    //$active.addClass('last-active');
+    $active.addClass('last-active');
     $active.css({opacity: 1.0})
         .animate({opacity: 0.0}, 1000, function() {
             $active.addClass('last-active');
