@@ -33,6 +33,13 @@ class JQueryAutocompleteType extends AbstractType
         $builder->setAttribute('scrollable', $options['scrollable']);
         $builder->setAttribute('minLength', $options['minLength']);
         $builder->setAttribute('displayValue', $options['displayValue']);
+        $builder->setAttribute('handlebar', $options['handlebar']);
+
+        if ($options['autoSubmit'] == false) {
+            $builder->setAttribute('autoSubmit', 'false');
+        } else {
+            $builder->setAttribute('autoSubmit', $options['autoSubmit']);
+        }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -41,7 +48,9 @@ class JQueryAutocompleteType extends AbstractType
             'fetchUrl' => null,
             'scrollable' => true,
             'minLength' => 1,
-            'displayValue' => 'value'
+            'displayValue' => 'value',
+            'autoSubmit' => 'true',
+            'handlebar' => '<p>{{value}}</p>'
         ));
     }
 
@@ -54,6 +63,8 @@ class JQueryAutocompleteType extends AbstractType
         $view->vars['scrollable'] = $form->getConfig()->getAttribute('scrollable');
         $view->vars['minLength'] = $form->getConfig()->getAttribute('minLength');
         $view->vars['displayValue'] = $form->getConfig()->getAttribute('displayValue');
+        $view->vars['handlebar'] = $form->getConfig()->getAttribute('handlebar');
+        $view->vars['autoSubmit'] = $form->getConfig()->getAttribute('autoSubmit');
     }
 
     public function getParent()

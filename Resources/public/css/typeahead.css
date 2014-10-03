@@ -1,3 +1,10 @@
+span.twitter-typeahead img {
+    height: 25px;
+    width: 25px;
+}
+span.twitter-typeahead .tt-dropdown-menu p {
+    cursor: pointer;
+}
 span.twitter-typeahead .tt-dropdown-menu {
     position: absolute;
     top: 100%;

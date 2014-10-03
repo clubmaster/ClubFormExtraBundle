@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+    if (autoSubmit) {
+        $(id).on('typeahead:selected', function (e, datum) {
+            $(id+'_hidden').val(datum.id);
+            $(id).closest('form').submit();
+        });
+    }
+
     if ('function' != typeof typeaheadReplace) {
         typeaheadReplace = function(url, query) {
             return url.replace(/%QUERY/, query);
@@ -31,7 +38,7 @@ $(document).ready(function() {
                 'We could not find any matches for your search',
                 '</div>'
             ].join('\n'),
-            suggestion: Handlebars.compile('<p>{{value}}</p>')
+            suggestion: Handlebars.compile(handlebar)
         }
     });
 });

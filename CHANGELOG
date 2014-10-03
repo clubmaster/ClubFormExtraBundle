@@ -1,5 +1,8 @@
 2.1
     * Added, login users without enter password
+    * Added, search hidden field for jquery_autocomplete
+    * Added, support for dynamic handlebar
+    * Added, option for autosubmit or not
 
 2.0 (2014-10-02)
     * This upgrade is basically because of twitter bootstrap 3.x
