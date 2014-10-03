@@ -4,7 +4,7 @@ namespace Club\FormExtraBundle\Helper;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Util\SecureRandom;
-
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class User
 {
@@ -123,5 +123,12 @@ class User
             $this->generatePassword(12),
             $tpl[array_rand($tpl)]
         );
+    }
+
+    public function login(UserInterface $user, $area)
+    {
+        $token = new UsernamePasswordToken($user, null, $area, $user->getRoles());
+        $this->container->get('security.context')->setToken($token);
+        $this->container->get('session')->set($area,serialize($token));
     }
 }

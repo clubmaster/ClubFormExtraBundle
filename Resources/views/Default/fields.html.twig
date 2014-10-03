@@ -216,41 +216,15 @@
 
 {% block jquery_autocomplete_widget %}
 <link rel="stylesheet" href="{{ asset('bundles/clubformextra/css/typeahead.css') }}" />
-<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/typeahead.bundle.js') }}"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-
-    if ('function' != typeof typeaheadReplace) {
-        typeaheadReplace = function(url, query) {
-           return url.replace(/%QUERY/, query);
-        }
-    }
-
     var fetchUrl = "{{ fetchUrl }}";
-    var fetch = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        limit: 100,
-        remote: {
-            url: fetchUrl+'?q=%QUERY',
-            replace: typeaheadReplace
-        }
-    });
-    fetch.initialize();
-
-    $('#{{ id }}').typeahead(
-    {
-        highlight: true,
-        minLength: {{ minLength }},
-        hint: true
-    },
-    {
-        name: 'fetch',
-        displayKey: '{{ displayValue }}',
-        source: fetch.ttAdapter()
-    });
-});
+    var id = '#{{ id }}';
+    var minLength = {{ minLength }};
+    var displayValue = '{{ displayValue }}';
 </script>
+<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/handlebars-v2.0.0.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/typeahead.bundle.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/typeahead.js') }}"></script>
 <div{% if scrollable == true %} id="scrollable-dropdown-menu"{% endif %}>
 {{ form_widget(form) }}
 </div>
