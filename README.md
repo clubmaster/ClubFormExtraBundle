@@ -36,6 +36,9 @@ Added html slider:
 
 That will add a slideshow for you.
 
+TYPEAHEAD
+---------
+
 To use typeahead, your controller must follow this pattern:
 
 $result = array(
@@ -45,3 +48,13 @@ $result = array(
 );
 
 new JsonResponse($result);
+
+Stylesheet
+----------
+<link rel="stylesheet" href="{{ asset('bundles/clubformextra/css/typeahead.css') }}">
+
+JavaScript
+----------
+<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/handlebars-v2.0.0.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/typeahead.bundle.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/typeahead.js') }}"></script>

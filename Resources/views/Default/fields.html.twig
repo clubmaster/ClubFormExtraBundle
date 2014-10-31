@@ -215,7 +215,6 @@
 {% endblock %}
 
 {% block jquery_autocomplete_widget %}
-<link rel="stylesheet" href="{{ asset('bundles/clubformextra/css/typeahead.css') }}" />
 <script type="text/javascript">
     var fetchUrl = "{{ fetchUrl }}";
     var id = '#{{ id }}';
@@ -224,10 +223,13 @@
     var displayValue = '{{ displayValue }}';
     var handlebar = '{{ handlebar|raw }}';
 </script>
-<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/handlebars-v2.0.0.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/typeahead.bundle.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/clubformextra/js/typeahead.js') }}"></script>
-<div{% if scrollable == true %} id="scrollable-dropdown-menu"{% endif %}>
+{% if scrollable == true %}
+<div id="scrollable-dropdown-menu">
+{% endif %}
+
 {{ form_widget(form) }}
+
+{% if scrollable == true %}
 </div>
+{% endif %}
 {% endblock %}
