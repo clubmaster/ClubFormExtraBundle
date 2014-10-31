@@ -1,4 +1,4 @@
-2.1
+2.1 (2014-10-31)
     * Added, login users without enter password
     * Added, search hidden field for jquery_autocomplete
     * Added, support for dynamic handlebar
