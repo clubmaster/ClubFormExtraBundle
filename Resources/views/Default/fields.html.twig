@@ -216,6 +216,7 @@
 
 {% block jquery_autocomplete_widget %}
 <script type="text/javascript">
+    var noMatch = "{{ noMatch }}";
     var fetchUrl = "{{ fetchUrl }}";
     var id = '#{{ id }}';
     var minLength = {{ minLength }};

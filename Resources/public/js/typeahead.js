@@ -35,7 +35,7 @@ $(document).ready(function() {
         templates: {
             empty: [
                 '<div class="empty-message">',
-                'We could not find any matches for your search',
+                noMatch,
                 '</div>'
             ].join('\n'),
             suggestion: Handlebars.compile(handlebar)
