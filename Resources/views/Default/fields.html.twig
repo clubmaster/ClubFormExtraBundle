@@ -1,6 +1,8 @@
 {% block tinymce_widget %}
 {% spaceless %}
+    {% if tinymce_instances == 1 %}
     <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+    {% endif %}
     <script type="text/javascript">
     tinyMCE.init({
         mode : "exact",
