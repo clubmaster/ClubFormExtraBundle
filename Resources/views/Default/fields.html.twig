@@ -236,3 +236,17 @@
 </div>
 {% endif %}
 {% endblock %}
+
+{% block bootstrap_date_widget %}
+{% spaceless %}
+    <script>
+    $(document).ready(function() {
+        $('#{{ id }}').datepicker({
+            format: '{{ date_format }}'
+        });
+    });
+    </script>
+    {{ form_widget(form) }}
+{% endspaceless %}
+{% endblock %}
+
