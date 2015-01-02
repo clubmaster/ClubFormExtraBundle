@@ -19,13 +19,15 @@ class BootstrapDateType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'date_format' => 'yyyy-mm-dd'
+            'date_format' => 'yyyy-mm-dd',
+            'week_start' => '1'
         ));
     }
 
     public function finishView(FormView $view, FormInterface $form, array $options)
     {
         $view->vars['date_format'] = $options['date_format'];
+        $view->vars['week_start'] = $options['week_start'];
     }
 
     public function getParent()

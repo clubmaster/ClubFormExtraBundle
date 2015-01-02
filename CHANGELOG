@@ -1,3 +1,6 @@
+2.5 (2015-01-02)
+    * Added, support for week_start day in datepicker
+
 2.4 (2015-01-02)
     * Added, support for bootstrap datepicker
 

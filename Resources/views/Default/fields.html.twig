@@ -242,7 +242,8 @@
     <script>
     $(document).ready(function() {
         $('#{{ id }}').datepicker({
-            format: '{{ date_format }}'
+            format: '{{ date_format }}',
+            weekStart: {{ week_start }}
         });
     });
     </script>
