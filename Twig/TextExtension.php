@@ -4,11 +4,19 @@ namespace Club\FormExtraBundle\Twig;
 
 class TextExtension extends \Twig_Extension
 {
+    private $container;
+
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
     public function getFilters()
     {
         return array(
             'club_wordwrap' => new \Twig_Filter_Method($this, 'wordwrap'),
-            'club_linkify' => new \Twig_Filter_Method($this, 'linkify')
+            'club_linkify' => new \Twig_Filter_Method($this, 'linkify'),
+            'club_slugify' => new \Twig_Filter_Method($this, 'slugify')
         );
     }
 
@@ -22,6 +30,11 @@ class TextExtension extends \Twig_Extension
          return preg_replace(
              '%(https?|ftp)://([-A-Z0-9./_*?&;=#]+)%i',
              '<a target="blank" rel="nofollow" href="$0" target="_blank">$0</a>', $text);
+    }
+
+    public function slugify($text)
+    {
+        return $this->container->get('club_extra.tools')->slugify($text);
     }
 
     public function getName()

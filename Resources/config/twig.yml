@@ -20,5 +20,6 @@ services:
       - { name: twig.extension }
   club_layout_twig_text_extension:
     class: Club\FormExtraBundle\Twig\TextExtension
+    arguments: [@service_container]
     tags:
       - { name: twig.extension }
