@@ -14,9 +14,18 @@ class TextExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'club_wordwrap' => new \Twig_Filter_Method($this, 'wordwrap'),
-            'club_linkify' => new \Twig_Filter_Method($this, 'linkify'),
-            'club_slugify' => new \Twig_Filter_Method($this, 'slugify')
+            new \Twig_SimpleFilter('club_wordwrap', array(
+                $this,
+                'wordwrap'
+            )),
+            new \Twig_SimpleFilter('club_linkify', array(
+                $this,
+                'linkify'
+            )),
+            new \Twig_SimpleFilter('club_slugify', array(
+                $this,
+                'slugify'
+            ))
         );
     }
 

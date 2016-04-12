@@ -6,7 +6,6 @@ class CurrencyExtension extends \Twig_Extension
 {
     private $container;
     private $em;
-    private $security_context;
     private $session;
     private $locale;
 
@@ -14,14 +13,16 @@ class CurrencyExtension extends \Twig_Extension
     {
         $this->container = $container;
         $this->em = $container->get('doctrine.orm.default_entity_manager');
-        $this->security_context = $container->get('security.context');
         $this->session = $container->get('session');
     }
 
     public function getFilters()
     {
         return array(
-            'club_price' => new \Twig_Filter_Method($this, 'getPrice')
+            new \Twig_SimpleFilter('club_price', array(
+                $this,
+                'getPrice'
+            ))
         );
     }
 

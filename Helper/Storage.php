@@ -26,5 +26,4 @@ class Storage
     {
         $this->description = $description;
     }
-
 }

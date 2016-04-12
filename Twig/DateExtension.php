@@ -6,7 +6,6 @@ class DateExtension extends \Twig_Extension
 {
     private $container;
     private $em;
-    private $security_context;
     private $session;
     private $locale;
     private $timezone;
@@ -15,7 +14,6 @@ class DateExtension extends \Twig_Extension
     {
         $this->container = $container;
         $this->em = $container->get('doctrine.orm.default_entity_manager');
-        $this->security_context = $container->get('security.context');
         $this->session = $container->get('session');
         $this->translator = $container->get('translator');
         $this->timezone = date_default_timezone_get();
@@ -38,12 +36,12 @@ class DateExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'club_date' => new \Twig_Filter_Method($this, 'getDate'),
-            'club_datetime' => new \Twig_Filter_Method($this, 'getDateTime'),
-            'club_time' => new \Twig_Filter_Method($this, 'getTime'),
-            'club_day' => new \Twig_Filter_Method($this, 'getDay'),
-            'club_ago' => new \Twig_Filter_Method($this, 'getAgo'),
-            'club_ical' => new \Twig_Filter_Method($this, 'getIcal'),
+            new \Twig_SimpleFilter('club_date', array($this, 'getDate')),
+            new \Twig_SimpleFilter('club_datetime', array($this, 'getDateTime')),
+            new \Twig_SimpleFilter('club_time', array($this, 'getTime')),
+            new \Twig_SimpleFilter('club_day', array($this, 'getDay')),
+            new \Twig_SimpleFilter('club_ago', array($this, 'getAgo')),
+            new \Twig_SimpleFilter('club_ical', array($this, 'getIcal'))
         );
     }
 

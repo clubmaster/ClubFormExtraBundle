@@ -7,7 +7,10 @@ class FileExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'club_filesize' => new \Twig_Filter_Method($this, 'getFilesize')
+            new \Twig_SimpleFilter('club_filesize', array(
+                $this,
+                'getFilesize'
+            ))
         );
     }
 

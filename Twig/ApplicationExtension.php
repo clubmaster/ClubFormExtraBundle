@@ -2,13 +2,25 @@
 
 namespace Club\FormExtraBundle\Twig;
 
-class ApplicationExtension extends \Twig_Extension
+class ApplicationExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
     private $container;
+    private $opengraph;
 
     public function __construct($container)
     {
         $this->container = $container;
+        $this->opengraph = $container->get('club_extra.opengraph');
+    }
+
+    public function getFunctions()
+    {
+        return array(
+            new \Twig_SimpleFunction('club_opengraph', array($this, 'renderOpenGraph'), array(
+                'needs_environment' => true,
+                'is_safe' => array('html')
+            ))
+        );
     }
 
     public function getGlobals()
@@ -47,6 +59,17 @@ class ApplicationExtension extends \Twig_Extension
         }
 
         return $description;
+    }
+
+    public function renderOpenGraph(\Twig_Environment $environment)
+    {
+        if ($this->opengraph->inUse() === false) {
+            return;
+        }
+
+        return $environment->render('ClubFormExtraBundle:Helper:opengraph.html.twig', array(
+            'opengraph' => $this->opengraph
+        ));
     }
 
     public function getName()
