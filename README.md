@@ -4,7 +4,7 @@ composer.phar require clubmaster/formextra
 
 When installed add the following to your AppKernel.php file:
 
-new Club\FormExtrabundle\ClubFormExtrabundle(),
+new Club\FormExtraBundle\ClubFormExtraBundle(),
 
 If you want to use the forms, remember to add this to your config.yml:
 
